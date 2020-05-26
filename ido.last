@@ -1,0 +1,26 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/" . "Users/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ 
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/" (24236 3872 181660 861000) "enke/" "Guest/" "Shared/" ".localized" "../" "./")
+
+ ("/Users/enke/" (24269 14199 982532 422000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".zcompdump-MacBook Pro-5.7.1" ".oh-my-zsh/" ".vscode/" ".pyenv/" "Documents/" ".Trash/" "Dropbox/" ".python-version" "Applications/" "Movies/" ".ssh/" ".zcompdump-MacBook Pro-5.6.2" ".itmer2/" "Virtual Machines.localized/" ".dropbox/" ".emacs.d/" ".ShadowsocksX-NG/" ".doom.d/" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".pylint.d/" "Pictures/" ".local/" ".zcompdump-MacBook Pro-5.3" ".zshrc" ".wget-hsts" ".CFUserTextEncoding" ".DS_Store" "Music/" ".config/" ".fastlane/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
