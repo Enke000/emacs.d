@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Enke)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">Enke</h2><p class="date">Created: 2020-05-27 Wed 23:33</p>
+</section>
+<section id="table-of-contents"><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org98741a4">1. interface tweaks</a></li>
+<li><a href="#/slide-org4ffd3f8">2. Try</a></li>
+<li><a href="#/slide-org272cb3c">3. which key</a></li>
+<li><a href="#/slide-org1b7cf8c">4. flex-matching</a></li>
+<li><a href="#/slide-org5053ef5">5. org-mode stuff</a></li>
+<li><a href="#/slide-org7a9ed23">6. use ace-window</a></li>
+<li><a href="#/slide-org0680958">7. useing counsel and swiper</a></li>
+<li><a href="#/slide-orgad792a4">8. use avy</a></li>
+<li><a href="#/slide-orgf4439fe">9. useing auto-complete</a></li>
+<li><a href="#/slide-org36daa5d">10. use color theme</a></li>
+<li><a href="#/slide-org507da4e">11. use zenburn theme</a></li>
+<li><a href="#/slide-org861871f">12. Reveal.js</a></li>
+<li><a href="#/slide-orgbad91c5">13. install htmlize</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org98741a4">
+<h2 id="org98741a4"><span class="section-number-2">1</span> interface tweaks</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #5F7F5F;">;;</span><span style="color: #7F9F7F;">hide startup massage</span>
+(<span style="color: #F0DFAF; font-weight: bold;">setq</span> inhibit-startup-message t)
+<span style="color: #5F7F5F;">;; </span><span style="color: #7F9F7F;">close backup </span>
+(<span style="color: #F0DFAF; font-weight: bold;">setq</span> make-backup-files nil)
+<span style="color: #5F7F5F;">;;</span><span style="color: #7F9F7F;">hide tool bar</span>
+(tool-bar-mode -1)
+<span style="color: #5F7F5F;">;; </span><span style="color: #7F9F7F;">use y-n-p over yes-no-p</span>
+(fset 'yes-or-no-p 'y-or-n-p)
+<span style="color: #5F7F5F;">;;</span><span style="color: #7F9F7F;">reload buffer use F5</span>
+(global-set-key (kbd <span style="color: #CC9393;">"&lt;f5&gt;"</span>) 'revert-buffer)
+<span style="color: #5F7F5F;">;;</span><span style="color: #7F9F7F;">list buffers</span>
+(<span style="color: #F0DFAF; font-weight: bold;">defalias</span> '<span style="color: #93E0E3;">list-buffers</span> 'ibuffer)
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org4ffd3f8">
+<h2 id="org4ffd3f8"><span class="section-number-2">2</span> Try</h2>
+<p>
+using 'try'
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">try</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t)
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org272cb3c">
+<h2 id="org272cb3c"><span class="section-number-2">3</span> which key</h2>
+<p>
+using 'which-key', can display available key in mini-buffer
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">which-key</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  <span style="color: #DCDCCC; font-weight: bold;">:config</span>
+  (which-key-mode))
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org1b7cf8c">
+<h2 id="org1b7cf8c"><span class="section-number-2">4</span> flex-matching</h2>
+<p>
+enabele flex-matching
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">setq</span> indo-enable-flex-matching t)
+(<span style="color: #F0DFAF; font-weight: bold;">setq</span> ido-everywhere t)
+(ido-mode 1)
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org5053ef5">
+<h2 id="org5053ef5"><span class="section-number-2">5</span> org-mode stuff</h2>
+<p>
+useing org-bullets, can show outline as bullets in org-mode
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">org-bullets</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  <span style="color: #DCDCCC; font-weight: bold;">:config</span>
+  (add-hook 'org-mode-hook #'org-bullets-mode))
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org7a9ed23">
+<h2 id="org7a9ed23"><span class="section-number-2">6</span> use ace-window</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">ace-window</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  <span style="color: #DCDCCC; font-weight: bold;">:init</span>
+  (<span style="color: #F0DFAF; font-weight: bold;">progn</span>
+    (global-set-key [remap other-window] 'ace-window)
+    <span style="color: #5F7F5F;">;;</span><span style="color: #7F9F7F;">change faces of ace-window</span>
+    (custom-set-faces
+     '(aw-leading-char-face
+       ((t (<span style="color: #DCDCCC; font-weight: bold;">:inherit</span> ace-jump-face-foreground <span style="color: #DCDCCC; font-weight: bold;">:height</span> 3.0)))))
+    ))
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org0680958">
+<h2 id="org0680958"><span class="section-number-2">7</span> useing counsel and swiper</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">counsel</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  )
+(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">swiper</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> try
+  <span style="color: #DCDCCC; font-weight: bold;">:bind</span>((<span style="color: #CC9393;">"C-s"</span> . swiper)
+        (<span style="color: #CC9393;">"C-r"</span> . swiper)
+        (<span style="color: #CC9393;">"C-c C-r"</span> . ivy-resume)
+        (<span style="color: #CC9393;">"M-x"</span> . counsel-M-x)
+        (<span style="color: #CC9393;">"C-x C-f"</span> . counsel-find-file))
+  <span style="color: #DCDCCC; font-weight: bold;">:config</span>
+  (<span style="color: #F0DFAF; font-weight: bold;">progn</span>
+    (ivy-mode 1)
+    (<span style="color: #F0DFAF; font-weight: bold;">setq</span> ivy-use-virtual-buffers t)
+    (<span style="color: #F0DFAF; font-weight: bold;">setq</span> ivy-display-style 'fancy)
+    (define-key read-expression-map (kbd <span style="color: #CC9393;">"C-r"</span>) 'counsel-expression-history)
+    ))
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgad792a4">
+<h2 id="orgad792a4"><span class="section-number-2">8</span> use avy</h2>
+<p>
+avy can do like ace-window, it let your choose a character to swip.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">avy</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  <span style="color: #DCDCCC; font-weight: bold;">:bind</span>(<span style="color: #CC9393;">"M-s"</span> . avy-goto-char))
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf4439fe">
+<h2 id="orgf4439fe"><span class="section-number-2">9</span> useing auto-complete</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">auto-complete</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  <span style="color: #DCDCCC; font-weight: bold;">:init</span>
+  (<span style="color: #F0DFAF; font-weight: bold;">progn</span>
+    (ac-config-default)
+    (global-auto-complete-mode t)
+    ))
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org36daa5d">
+<h2 id="org36daa5d"><span class="section-number-2">10</span> use color theme</h2>
+<p>
+;;(use-package color-theme
+;;  :ensure t)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org507da4e">
+<h2 id="org507da4e"><span class="section-number-2">11</span> use zenburn theme</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">zenburn-theme</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t
+  <span style="color: #DCDCCC; font-weight: bold;">:config</span> (load-theme 'zenburn t))
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org861871f">
+<h2 id="org861871f"><span class="section-number-2">12</span> Reveal.js</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">ox-reveal</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> ox-reveal)
+
+(<span style="color: #F0DFAF; font-weight: bold;">setq</span> org-reveal-root <span style="color: #CC9393;">"http://cdn.jsdelivr.net/reveal.js/3.0.0/"</span>)
+(<span style="color: #F0DFAF; font-weight: bold;">setq</span> org-reveal-mathjax t)
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgbad91c5">
+<h2 id="orgbad91c5"><span class="section-number-2">13</span> install htmlize</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim>(<span style="color: #F0DFAF; font-weight: bold;">use-package</span> <span style="color: #BFEBBF;">htmlize</span>
+  <span style="color: #DCDCCC; font-weight: bold;">:ensure</span> t)
+
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
