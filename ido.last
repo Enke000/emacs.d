@@ -17,11 +17,13 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/enke/dropbox/org/" (24272 27904 461303 31000) ".#note_taking_system.org" "#note_taking_system.org#" "notes/" "recipes.org" "#recipes.org#" ".DS_Store" "note_taking_system.org" "../" "./")
+
+ ("/Users/enke/" (24271 46527 348353 422000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".zcompdump-MacBook Pro-5.7.1" ".oh-my-zsh/" ".vscode/" ".pyenv/" "Documents/" ".Trash/" "Dropbox/" ".python-version" "Applications/" "Movies/" ".ssh/" ".zcompdump-MacBook Pro-5.6.2" ".itmer2/" "Virtual Machines.localized/" ".dropbox/" ".emacs.d/" ".ShadowsocksX-NG/" ".doom.d/" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".pylint.d/" "Pictures/" ".local/" ".zcompdump-MacBook Pro-5.3" ".zshrc" ".wget-hsts" ".CFUserTextEncoding" ".DS_Store" "Music/" ".config/" ".fastlane/" "../" "./")
+
  ("/home/enke/" (24269 51398 637217 800000) "hello.org" "Dropbox/" ".zshrc" ".zsh_history" ".zcompdump-DESKTOP-F0P7NF8-5.4.2" ".zcompdump" ".wget-hsts" ".vscode-server/" ".viminfo" ".sudo_as_admin_successful" ".shell.pre-oh-my-zsh" ".python_history" ".pylint.d/" ".pyenv/" ".profile" ".oh-my-zsh/" ".local/" ".lesshst" ".gnupg/" ".gitconfig" ".emacs.d/" ".config/" ".cal.swp" ".cache/" ".bashrc" ".bash_logout" ".bash_history" "../" "./")
 
  ("/Users/" (24236 3872 181660 861000) "enke/" "Guest/" "Shared/" ".localized" "../" "./")
-
- ("/Users/enke/" (24269 14199 982532 422000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".zcompdump-MacBook Pro-5.7.1" ".oh-my-zsh/" ".vscode/" ".pyenv/" "Documents/" ".Trash/" "Dropbox/" ".python-version" "Applications/" "Movies/" ".ssh/" ".zcompdump-MacBook Pro-5.6.2" ".itmer2/" "Virtual Machines.localized/" ".dropbox/" ".emacs.d/" ".ShadowsocksX-NG/" ".doom.d/" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".pylint.d/" "Pictures/" ".local/" ".zcompdump-MacBook Pro-5.3" ".zshrc" ".wget-hsts" ".CFUserTextEncoding" ".DS_Store" "Music/" ".config/" ".fastlane/" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----
