@@ -1,4 +1,14 @@
-((("asldkjiwdlaksjd" .
+((("global-auto-revert-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("global" .
+   [0 0 0 0 0 1])
+  ("nil" .
+   [1 0 0])
+  ("auto-revert" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("lsh" .
+   [0 0 1])
+  ("asldkjiwdlaksjd" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("is" .
    [1 0])

@@ -17,6 +17,8 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/enke/.emacs.d/" (24272 45742 405695 155000) "myinit.org" ".git/" "README.org" "elpa/" "recentf" ".gitignore" "samples/" "init.el" ".python-environments/" "auto-save-list/" "myinit.html" "elpy/" "myinit.el" "*Backtrace*" ".DS_Store" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+
  ("/Users/enke/dropbox/org/" (24272 27904 461303 31000) ".#note_taking_system.org" "#note_taking_system.org#" "notes/" "recipes.org" "#recipes.org#" ".DS_Store" "note_taking_system.org" "../" "./")
 
  ("/Users/enke/" (24271 46527 348353 422000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".zcompdump-MacBook Pro-5.7.1" ".oh-my-zsh/" ".vscode/" ".pyenv/" "Documents/" ".Trash/" "Dropbox/" ".python-version" "Applications/" "Movies/" ".ssh/" ".zcompdump-MacBook Pro-5.6.2" ".itmer2/" "Virtual Machines.localized/" ".dropbox/" ".emacs.d/" ".ShadowsocksX-NG/" ".doom.d/" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".pylint.d/" "Pictures/" ".local/" ".zcompdump-MacBook Pro-5.3" ".zshrc" ".wget-hsts" ".CFUserTextEncoding" ".DS_Store" "Music/" ".config/" ".fastlane/" "../" "./")
