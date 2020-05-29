@@ -7,6 +7,8 @@
 ;; use y-n-p over yes-no-p
 (fset 'yes-or-no-p 'y-or-n-p)
 ;;reload buffer use F5
+(global-auto-revert-mode 1)
+(setq auto-revert-verbose nil)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 ;;list buffers
 (defalias 'list-buffers 'ibuffer)
@@ -109,6 +111,8 @@
   (beacon-mode 1)
   ;;(setq beacon-color "#666600")
   )
+
+(setq save-interprogram-paste-before-kill t)
 
 (use-package hungry-delete
   :ensure t
