@@ -1,4 +1,2 @@
-* hello
-** world
 * Try Using Org-mode
-it is awesome
+To learen use emacs fllowing [[https://cestlaz.github.io/stories/emacs/][Mike Zamansky]]
