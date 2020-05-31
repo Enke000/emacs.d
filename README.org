@@ -1,2 +1,2 @@
-* Try Using Org-mode
+* Try Using Emacs and Org-mode
 To learen use emacs fllowing [[https://cestlaz.github.io/stories/emacs/][Mike Zamansky]]

@@ -2,14 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-refile-last-stored"
- (filename . "~/dropbox/org/note_taking_system.org")
- (front-context-string . "** [[http://www.")
- (rear-context-string . "   - on mobile\n\n")
- (position . 877))
+(("note_taking_system.org"
+ (filename . "~/Dropbox/org/notes/note_taking_system.org")
+ (front-context-string . "DONE Use Emacs b")
+ (rear-context-string . "ithout hour.\n** ")
+ (position . 1965))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/org/i.org")
- (front-context-string . "** TODO \n this i")
- (rear-context-string . "To Do and Notes\n")
- (position . 91))
+ (filename . "~/Dropbox/org/inbox.org")
+ (front-context-string . "**  [[https://gi")
+ (rear-context-string . "m/a/1Pd\n* Links\n")
+ (position . 121))
+("myinit.org"
+ (filename . "~/.emacs.d/myinit.org")
+ (front-context-string . "#+STARTUP: overv")
+ (rear-context-string)
+ (position . 1))
 )

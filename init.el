@@ -27,9 +27,9 @@
  '(org-src-fontify-natively t)
  '(org-startup-folded (quote overview))
  '(org-startup-indented t)
- '(package-selected-packages
-   (quote
-    (org-ac web-mode iedit expand-region aggresive-indent hungry-delete beacon elpy htmlize zenburn-theme which-key use-package try orgalist org-bullets gnu-elpa-keyring-update counsel color-theme auto-complete ace-window))))
+ '(org-image-actual-width nill)
+ )
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

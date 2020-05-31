@@ -18,29 +18,29 @@
            (setq mac-command-modifier 'meta))
   (pass))
 
-(use-package try
-  :ensure t)
+(setq fonts
+      (cond ((eq system-type 'darwin)     '("Monaco"    "STHeiti"))
+	    ((eq system-type 'gnu/linux)  '("Menlo"     "WenQuanYi Zen Hei"))
+	    ((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
+(set-face-attribute 'default nil :font
+		    (format "%s:pixelsize=%d" (car fonts) 14))
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font) charset
+		    (font-spec :family (car (cdr fonts)))))
+;; Fix chinese font width and rescale
+(setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Micro HeiMono" . 1.2) ("STHeiti". 1.2)))
 
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode))
-
-(setq indo-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook #'org-bullets-mode))
+;;(use-package org-bullets
+;;  :ensure t
+;;  :config
+;;  (add-hook 'org-mode-hook #'org-bullets-mode))
 
 (setenv "BROWSER" "safari")
 
 ;; set org files directory
 (custom-set-variables
  '(org-directory "~/Dropbox/org")
- '(org-default-notes-file (concat org-directory "/notes.org"))
+ '(org-default-notes-file (concat org-directory "/inbox.org"))
  '(org-export-html-postamble nil)
  '(org-hide-leading-stars t)
  '(org-startup-folded (quote overview))
@@ -75,57 +75,71 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;;load agenda files
-(setq org-agenda-files (list "~/Dropbox/org/gcal.org"
-                             "~/Dropbox/org/i.org"
-                             "~/Dropbox/org/schedule.org"
-                             "~/Dropbox/org/notes.org"))
+(setq org-agenda-files (list "~/Dropbox/org/inbox.org"))
 
 ;;set org capture templates
 (setq org-capture-templates
-      '(("a" "Appointment" entry (file  "~/Dropbox/org/gcal.org" )
-         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ("l" "Link" entry (file+headline "~/Dropbox/org/links.org" "Links")
+      '(("l" "Link" entry (file+headline "~/Dropbox/org/inbox.org" "Links")
          "* %? %^L %^g \n%T" :prepend t)
-        ("b" "Blog idea" entry (file+headline "~/Dropbox/org/i.org" "Blog Topics:")
-             "* %?\n%T" :prepend t)
-        ("t" "To Do Item" entry (file+headline "~/Dropbox/org/i.org" "To Do and Notes")
+        ("t" "To-Do Item" entry (file+headline "~/Dropbox/org/inbox.org" "To-Do")
          "* TODO %?\n%u" :prepend t)
-        ("m" "Mail To Do" entry (file+headline "~/Dropbox/org/i.org" "To Do and Notes")
-         "* TODO %a\n %?" :prepend t)
-        ("g" "GMail To Do" entry (file+headline "~/Dropbox/org/i.org" "To Do and Notes")
-         "* TODO %^L\n %?" :prepend t)
-        ("n" "Note" entry (file+headline "~/Dropbox/org/i.org" "Notes")
+        ("n" "Note" entry (file+headline "~/Dropbox/org/inbox.org" "Notes")
          "* %u %? " :prepend t)
         ))
 
-;;All the below is capture frame setting
-(defadvice org-capture-finalize 
-    (after delete-capture-frame activate)  
-  "Advise capture-finalize to close the frame"  
-  (if (equal "capture" (frame-parameter nil 'name))  
-      (delete-frame)))
-
-(defadvice org-capture-destroy 
-    (after delete-capture-frame activate)  
-  "Advise capture-destroy to close the frame"  
-  (if (equal "capture" (frame-parameter nil 'name))  
-      (delete-frame)))  
-
-(use-package noflet
-  :ensure t )
-(defun make-capture-frame ()
-  "Create a new frame and run org-capture."
-  (interactive)
-  (make-frame '((name . "capture")))
-  (select-frame-by-name "capture")
-  (delete-other-windows)
-  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-          (org-capture)))
-;; (require 'ox-beamer)
-;; for inserting inactive dates
-    (define-key org-mode-map (kbd "C-c >") (lambda () (interactive (org-time-stamp-inactive))))
-
+;; use htmlize
 (use-package htmlize :ensure t)
+;;images support
+(use-package org-download
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'org-download-enable)
+  (setq-default org-download-heading-lvl nil)
+  (setq-default org-download-image-dir "~/Dropbox/org/notes/images"))
+;; set defauly img width in org.a
+(setq org-image-actual-width 500)
+
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(
+        ("blog-notes"
+         :base-directory "~/Dropbox/org/notes/"
+         :base-extension "org"
+         :publishing-directory "~/Dropbox/org/html/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 2
+         :auto-preamble t
+         :section-numbers nil
+         :author "Enke"
+         :email "enke000@gmail.com"
+         :auto-sitemap t                  ; 自动生成 sitemap.org 文件
+         :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+         :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
+         :sitemap-sort-files anti-chronologically
+         :sitemap-file-entry-format "%d %t"
+         )
+        ("blog-static"
+         :base-directory "~/Dropbox/org/notes/"
+         :base-extension "css|js|png|jpg|gif|pdf|mp3|ogg|swf"
+         :publishing-directory "~/Dropbox/org/html/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("blog" :components ("blog-notes" "blog-static"))
+        ))
+
+(use-package try
+  :ensure t)
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+(setq indo-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
 (use-package ace-window
   :ensure t
