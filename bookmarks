@@ -7,11 +7,6 @@
  (front-context-string . "DONE Use Emacs b")
  (rear-context-string . "ithout hour.\n** ")
  (position . 1965))
-("org-capture-last-stored"
- (filename . "~/Dropbox/org/inbox.org")
- (front-context-string . "**  [[https://gi")
- (rear-context-string . "m/a/1Pd\n* Links\n")
- (position . 121))
 ("myinit.org"
  (filename . "~/.emacs.d/myinit.org")
  (front-context-string . "#+STARTUP: overv")
