@@ -1,3 +1,20 @@
 pwd
 ls
 find-file Git-and-Github.org 
+ls
+tree
+mv learning-how-to-learn.org Computer-Science/
+tree
+exit
+ping www.baidu.com
+ping mirrors.tuna.tsinghua.edu.cn
+ls
+chmod +x pand.sh 
+ls
+cd notes/
+ls
+cd Computer-Science/
+ls
+./pand.sh 
+emacs pand.sh 
+./pand.sh 

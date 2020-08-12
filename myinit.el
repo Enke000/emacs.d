@@ -43,24 +43,53 @@
 ;;(add-hook 'window-setup-hook 'toggle-frame-maximized t)
 ;;(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
+;;括号补全
 (electric-pair-mode t)
+;;自动换行
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+;;开启行号
+(global-linum-mode t)
 
-(setq fonts
-      (cond ((eq system-type 'darwin)     '("Monaco"    "STHeiti"))
-            ((eq system-type 'gnu/linux)  '("Menlo"     "STHeiti"))
-            ((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
-(set-face-attribute 'default nil :font
-                    (format "%s:pixelsize=%d" (car fonts) 14))
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font) charset
-                    (font-spec :family (car (cdr fonts)))))
+;;(setq fonts
+;;      (cond ((eq system-type 'darwin)     '("Monaco"    "STHeiti"))
+;;            ((eq system-type 'gnu/linux)  '("Menlo"     "STHeiti"))
+;;            ((eq system-type 'windows-nt) '("Consolas"  "Microsoft Yahei"))))
+;;(set-face-attribute 'default nil :font
+;;                    (format "%s:pixelsize=%d" (car fonts) 14))
+;;(dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;  (set-fontset-font (frame-parameter nil 'font) charset
+;;                    (font-spec :family (car (cdr fonts)))))
 ;;Fix chinese font width and rescale
-(setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Micro HeiMono" . 1.2) ("STHeiti". 1.2)))
+;;(setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2) ("WenQuanYi Micro HeiMono" . 1.2) ("STHeiti". 1.2)))
 
-;;(use-package org-bullets
-;;  :ensure t
-;;  :config
-;;  (add-hook 'org-mode-hook #'org-bullets-mode))
+(global-hl-line-mode t)
+
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+  ;;(setq beacon-color "#666600")
+  )
+
+(setq save-interprogram-paste-before-kill t)
+
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
+
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
+(use-package iedit
+  :ensure t)
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook #'org-bullets-mode))
 
 ;; set org-file-apps?
 ;; (setq org-file-apps
@@ -104,7 +133,7 @@
   (setq-default org-download-image-dir "~/Dropbox/org/images")
   )
 ;; set defauly img width in org
-(setq org-image-actual-width 500)
+(setq org-image-actual-width 450)
 
 
 ;; (defun after-org-mode-loaded()
@@ -116,55 +145,59 @@
 ;;     ))
 
 ;; use htmlize
-(use-package htmlize :ensure t)
+(use-package htmlize
+  :ensure t)
 (require 'ox-publish)
-(setq org-publish-project-alist
-      '(
-        ("blog-notes"
-         :base-directory "~/Dropbox/org/notes/"
-         :base-extension "org"
-         :publishing-directory "~/Dropbox/org/html/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 2
-         :auto-preamble t
-         :section-numbers nil
-         :author "Enke"
-         :email "enke000@gmail.com"
-         :auto-sitemap t                  ; 自动生成 sitemap.org 文件
-         :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
-         :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
-         :sitemap-sort-files anti-chronologically
-         :sitemap-file-entry-format "%d %t"
-         )
-        ("blog-static"
-         :base-directory "~/Dropbox/org/notes/"
-         :base-extension "css|js|png|jpg|gif|pdf|mp3|ogg|swf"
-         :publishing-directory "~/Dropbox/org/html/"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-        ("blog" :components ("blog-notes" "blog-static"))
-        ))
+(require 'ox-html)
+(require 'ox-md)
+
+;; (setq org-publish-project-alist
+;;       '(
+;;         ("blog-notes"
+;;          :base-directory "~/Dropbox/org/notes/"
+;;          :base-extension "org"
+;;          :publishing-directory "~/Dropbox/org/html/"
+;;          :recursive t
+;;          :publishing-function org-html-publish-to-html
+;;          :headline-levels 2
+;;          :auto-preamble t
+;;          :section-numbers nil
+;;          :author "Enke"
+;;          :email "enke000@gmail.com"
+;;          :auto-sitemap t                  ; 自动生成 sitemap.org 文件
+;;          :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+;;          :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
+;;          :sitemap-sort-files anti-chronologically
+;;          :sitemap-file-entry-format "%d %t"
+;;          )
+;;         ("blog-static"
+;;          :base-directory "~/Dropbox/org/notes/"
+;;          :base-extension "css|js|png|jpg|gif|pdf|mp3|ogg|swf"
+;;          :publishing-directory "~/Dropbox/org/html/"
+;;          :recursive t
+;;          :publishing-function org-publish-attachment
+;;          )
+;;         ("blog" :components ("blog-notes" "blog-static"))
+;;         ))
 
 ;;deft emacs
 (use-package deft
   :ensure t
   :bind ("C-c d" . deft)
   :commands (deft)
-  :config (setq deft-directory "~/Dropbox/org/notes"
-                deft-extensions '("md" "org")
-                deft-recursive t
-                deft-extensions '("txt" "tex" "org" "md")
-                deft-file-naming-rules '((noslash . "-"))
-                deft-text-mode 'org-mode
-                deft-use-filter-string-for-filename t
-                deft-strip-summary-regexp
-                (concat "\\("
-                        "[\n\t]" ;; blank
-                        "\\|^#\\+[[:upper:]_]+:.*$" ;; org-mode metadata
-                        "\\|^#\\+[[:alnum:]_]+:.*$" ;; org-mode metadata
-                        "\\)")))
+  :init (setq deft-directory "~/Dropbox/org/notes"
+              deft-extensions '("org")
+              deft-text-mode 'org-mode
+              deft-recursive t
+              deft-file-naming-rules '((noslash . "-"))
+              deft-text-mode 'org-mode
+              deft-use-filter-string-for-filename t
+              deft-strip-summary-regexp
+              (concat "\\("
+                      "[\n\t]" ;; blank
+                      "\\|^#\\+[[:upper:]_]+:.*$" ;; org-mode metadata
+                      "\\|^#\\+[[:alnum:]_]+:.*$" ;; org-mode metadata
+                      "\\)")))
 
 (use-package try
   :ensure t)
@@ -262,30 +295,6 @@
   :init
   (yas-global-mode 1))
 
-(global-hl-line-mode t)
-
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode 1)
-  ;;(setq beacon-color "#666600")
-  )
-
-(setq save-interprogram-paste-before-kill t)
-
-(use-package hungry-delete
-  :ensure t
-  :config
-  (global-hungry-delete-mode))
-
-(use-package expand-region
-  :ensure t
-  :config
-  (global-set-key (kbd "C-=") 'er/expand-region))
-
-(use-package iedit
-  :ensure t)
-
 (use-package web-mode
   :ensure t
   :config
@@ -298,14 +307,6 @@
 
   (setq web-mode-enable-auto-closing t)
   (setq web-mode-enable-auto-quoting t)) ; this fixes the quote problem I mentioned
-
-(defadvice handle-delete-frame (around my-handle-delete-frame-advice activate)
-  "Hide Emacs instead of closing the last frame"
-  (let ((frame   (posn-window (event-start event)))
-        (numfrs  (length (frame-list))))
-    (if (> numfrs 1)
-        ad-do-it
-      (do-applescript "tell application \"System Events\" to tell process \"Emacs\" to set visible to false"))))
 
 (defun now ()
   "Insert string for the current time formatted like '2:34 PM' or 1507121460"

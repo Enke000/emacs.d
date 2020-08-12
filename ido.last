@@ -9,7 +9,7 @@
 
 ;; ----- ido-work-directory-list -----
 (
- 
+ "/Users/enke/Dropbox/org/notes/"
 )
 
 ;; ----- ido-work-file-list -----
@@ -19,13 +19,13 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/enke/Dropbox/org/notes/" (24295 13352 513711 853000) "study-notebook.org" "memo.org" "2020-06-15T1640.txt" "install-arch-with-windows.org" "week-log.org" "sitemap.org" "Recipes.org" "Master-Class/" "work.org" "Computer-Science/" ".DS_Store" "note_taking_system.org" "../" "./")
+ ("/Users/enke/Dropbox/org/notes/" (24357 3941 803018 587000) "how-to-take-smart-notes.org" "study-notebook.org" "learning-piano.org" "memo.org" "week-log.org" "Recipes.org" "Master-Class/" "work.org" "Computer-Science/" "自学钢琴" ".DS_Store" "note_taking_system.org" "../" "./")
 
- ("/Users/enke/.emacs.d/" (24294 7410 780825 929000) "myinit.org" ".git/" "README.org" "elpa/" "recentf" "request/" "image-dired/" ".org-id-locations" ".gitignore" "bookmarks" "samples/" "init.el" ".python-environments/" "url/" "auto-save-list/" "cnfonts/" "projectile-bookmarks.eld" "elpy/" "myinit.el" "eshell/" ".DS_Store" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
+ ("/Users/enke/" (24346 40630 368246 281000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".zcompdump-MacBook Pro-5.7.1" ".oh-my-zsh/" ".vscode/" ".pyenv/" "Documents/" ".Trash/" "Dropbox/" ".python-version" "Applications/" "Movies/" ".ssh/" ".zcompdump-MacBook Pro-5.6.2" ".itmer2/" "Virtual Machines.localized/" ".dropbox/" ".emacs.d/" "Zotero/" ".ShadowsocksX-NG/" "Calibre Library/" ".doom.d/" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".pylint.d/" "Pictures/" ".local/" ".zcompdump-MacBook Pro-5.3" ".zshrc" ".wget-hsts" ".CFUserTextEncoding" ".DS_Store" "Databases/" "Music/" ".config/" ".fastlane/" ".org-timestamps/" "../" "./")
 
- ("/Users/enke/Dropbox/org/notes/Computer-Science/" (24292 54441 182865 31000) "Learn-Python.org" "Git-and-Github.org" "Using-Emacs.org" "Computer-ScienceUdacity-CS101.org" ".DS_Store" "CS-Panic.org" "../" "./")
+ ("/Users/enke/Dropbox/org/notes/Computer-Science/" (24346 38617 314725 745000) "Learn-Python.org" "Git-and-Github.org" "high-school-math.org" "Using-Emacs.org" "Computer-ScienceUdacity-CS101.org" ".DS_Store" "high-school-math.html" "learning-how-to-learn.org" "CS-Panic.org" "../" "./")
 
- ("/Users/enke/" (24291 34025 561614 932000) ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".python_history" "Downloads/" ".zcompdump-MacBook Pro-5.7.1" ".oh-my-zsh/" ".vscode/" ".pyenv/" "Documents/" ".Trash/" "Dropbox/" ".python-version" "Applications/" "Movies/" ".ssh/" ".zcompdump-MacBook Pro-5.6.2" ".itmer2/" "Virtual Machines.localized/" ".dropbox/" ".emacs.d/" "Zotero/" ".ShadowsocksX-NG/" ".doom.d/" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".pylint.d/" "Pictures/" ".local/" ".zcompdump-MacBook Pro-5.3" ".zshrc" ".wget-hsts" ".CFUserTextEncoding" ".DS_Store" "Databases/" "Music/" ".config/" ".fastlane/" ".org-timestamps/" "../" "./")
+ ("/home/enke/Dropbox/org/notes/Computer-Science/" (24318 38363 60936 817000) "Using-Emacs.org" "Computer-ScienceUdacity-CS101.org" "./" "Git-and-Github.org" "Learn-Python.org" "../" "high-school-math.org" "CS-Panic.org" "learning-how-to-learn.org")
 
  ("/Users/enke/Dropbox/org/" (24284 27899 110508 343000) "notes/" "inbox.org" "html/" "images/" ".DS_Store" "../" "./")
 
@@ -38,6 +38,8 @@
  ("/Users/enke/dropbox/org/notes/" (24275 24524 679323 380000) ".#for-postgraduate.org" "mac-conf.org" "week-log.org" "for-postgraduate.org" ".#week-log.org" "Recipes.org" "images/" "#week-log.org#" "Computer-Science/" ".DS_Store" "note_taking_system.org" "../" "./")
 
  ("/Users/enke/.oh-my-zsh/" (24093 38624 220353 279000) "themes/" "custom/" "LICENSE.txt" ".git/" "log/" "templates/" "lib/" ".github/" "CONTRIBUTING.md" ".gitignore" "README.md" ".editorconfig" "oh-my-zsh.sh" "plugins/" "cache/" "tools/" "CODE_OF_CONDUCT.md" "../" "./")
+
+ ("/Users/enke/.emacs.d/" (24274 16055 75397 405000) "myinit.org" ".git/" "README.org" "elpa/" "recentf" ".gitignore" "bookmarks" "samples/" "init.el" ".python-environments/" "auto-save-list/" "cnfonts/" "elpy/" "myinit.el" "*Backtrace*" ".DS_Store" "ido.last" "snippets/" "ac-comphist.dat" "../" "./")
 
  ("/Users/enke/dropbox/org/" (24272 27904 461303 31000) ".#note_taking_system.org" "#note_taking_system.org#" "notes/" "recipes.org" "#recipes.org#" ".DS_Store" "note_taking_system.org" "../" "./")
 
